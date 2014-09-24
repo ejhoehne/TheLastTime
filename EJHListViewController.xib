@@ -30,6 +30,10 @@
                     <rect key="frame" x="232" y="78" width="132" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="button:" destination="-1" eventType="editingDidEnd" id="e67-VV-uqM"/>
+                        <action selector="textField:" destination="-1" eventType="editingDidEnd" id="5ec-MP-dFf"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wB-Ym-cDc">
                     <rect key="frame" x="188" y="174" width="43" height="21"/>

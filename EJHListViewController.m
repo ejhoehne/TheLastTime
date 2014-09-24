@@ -8,7 +8,10 @@
 
 #import "EJHListViewController.h"
 
-@interface EJHListViewController ()
+static NSString * const timeKey = @"time";
+static NSString * const activityKey = @"activity";
+
+@interface EJHListViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UILabel *label;
 
@@ -19,14 +22,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self loadUserDefaults];
+}
+- (IBAction)button:(id)sender {
+    self.label.text = [NSString stringWithFormat:@"was: %@", [[NSDate date] description]];
+    
+    [self synchronize];
+}-(void) loadUserDefaults {
+    self.textField.text = [[NSUserDefaults standardUserDefaults] stringForKey:activityKey];
+    self.label.text = [[NSUserDefaults standardUserDefaults] stringForKey:timeKey];
 }
 
+- (void)synchronize {
+    [[NSUserDefaults standardUserDefaults] setObject:self.label.text forKey:timeKey];
+    [[NSUserDefaults standardUserDefaults] setObject:self.textField.text forKey:activityKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)button:(id)sender {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
+
 
 /*
 #pragma mark - Navigation

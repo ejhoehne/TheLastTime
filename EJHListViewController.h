@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EJHListViewController : UIViewController
-
+-(IBAction)button:(id)sender;
 @end
