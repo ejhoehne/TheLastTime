@@ -9,6 +9,8 @@
 #import "EJHListViewController.h"
 
 @interface EJHListViewController ()
+@property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -22,6 +24,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)button:(id)sender {
 }
 
 /*
